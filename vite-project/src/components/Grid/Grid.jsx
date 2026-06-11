@@ -1,8 +1,8 @@
 function Grid() {
-  let a = console.log("Grid criado");
+  let registro = console.log("Grid criado");
   return (
     <>
-      <h2>Grid {}</h2>
+      <h2>Grid {registro}</h2>
     </>
   );
 }

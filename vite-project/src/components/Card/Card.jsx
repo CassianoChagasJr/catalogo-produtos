@@ -2,7 +2,7 @@ function Card() {
   let registro = console.log("Card Criado");
   return (
     <>
-      <h2>Card{a}</h2>
+      <h2>Card{registro}</h2>
     </>
   );
 }
