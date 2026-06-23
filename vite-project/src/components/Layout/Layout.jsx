@@ -1,16 +1,14 @@
-import { Header } from "../Header"
-import { Footer } from "../Footer"
-import { Children } from "react"
+import { Header } from "../Header";
+import { Footer } from "../Footer";
 
-
-function Layout() {
-    return (
-        <>
-            <Header />
-            {Children}
-            <Footer />
-        </>
-    )
+function Layout({ children }) {
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
 }
 
-export { Layout }
+export { Layout };
