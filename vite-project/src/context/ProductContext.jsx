@@ -1,6 +1,6 @@
 // src/context/ProductContext.jsx
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { buscarProdutos } from "../services/api"; // Ajuste o caminho se necessário
+import { buscarProdutos } from "../services"; // Ajuste o caminho se necessário
 
 const ProductContext = createContext();
 

@@ -1,0 +1,26 @@
+/* src/components/Footer/Footer.module.css */
+
+.footerContainer {
+  background-color: #12110e; /* Mesmo tom escuro do seu Header */
+  color: #a39c93; /* Texto num tom cinza suave para não brigar com o conteúdo */
+  padding: 1rem 5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  border-top: 1px solid #262421;
+
+  /* Garante que ele fique travado embaixo sem sofrer com o scroll do grid */
+  flex-shrink: 0;
+}
+
+/* Responsividade para telas menores (Celulares) */
+@media (max-width: 48rem) {
+  .footerContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    padding: 1.25rem 5%;
+  }
+}

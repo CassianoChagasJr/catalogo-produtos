@@ -1,0 +1,7 @@
+/* src/components/Layout/Layout.module.css */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ocupa exatamente a altura visível */
+  width: 100%;
+}
