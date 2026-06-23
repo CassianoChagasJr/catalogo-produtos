@@ -1,8 +1,13 @@
-import { Card } from "./components";
+import { Layout, Grid } from "./components";
 import "./App.css";
 
+
 function App() {
-  return <Card />;
+  return (
+    <Layout>
+      <Grid />
+    </Layout>
+  );
 }
 
 export default App;
