@@ -1,1 +1,1 @@
-export { ContextProducts } from "./context";
+export { ProductProvider } from "./ProductContext";
