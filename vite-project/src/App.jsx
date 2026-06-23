@@ -1,12 +1,14 @@
 import { Layout, Grid } from "./components";
+import { ProductProvider } from "./context";
 import "./App.css";
-
 
 function App() {
   return (
-    <Layout>
-      <Grid />
-    </Layout>
+    <ProductProvider>
+      <Layout>
+        <Grid />
+      </Layout>
+    </ProductProvider>
   );
 }
 
