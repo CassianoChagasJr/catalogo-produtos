@@ -1,6 +1,6 @@
-
+// src/context/ProductContext.jsx
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { buscarProdutos } from "../services"; // Ajuste o caminho se necessário
+import { buscarProdutos } from "../services";
 
 const ProductContext = createContext();
 
@@ -9,9 +9,8 @@ export const ProductProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Estados globais para a paginação que o Grid vai consumir e alterar
+  // Mantemos apenas o offset no estado, que muda ao clicar em "Anterior/Próximo"
   const [offset, setOffset] = useState(0);
-  const [limit, setLimit] = useState(20); // Traz 12 itens por página (atende o "pelo menos 10")
 
   useEffect(() => {
     const carregarDados = async () => {
@@ -19,11 +18,10 @@ export const ProductProvider = ({ children }) => {
         setLoading(true);
         setError(null);
 
-        // Executa o fetch passando o estado atual de paginação
-        const dados = await buscarProdutos(offset, limit);
+        // Passando o valor estático (20) direto na função de consumo
+        const dados = await buscarProdutos(offset, 20);
         setProducts(dados);
       } catch (err) {
-        // Atende o requisito de tratamento de erro do PDF
         setError(
           "Não foi possível carregar os produtos. Tente novamente mais tarde.",
         );
@@ -33,7 +31,9 @@ export const ProductProvider = ({ children }) => {
     };
 
     carregarDados();
-  }, [offset, limit]); // Monitora offset e limit: se mudarem, faz um novo fetch automático!
+
+    // 🌟 CORREÇÃO AQUI: Removemos o 'limit' daqui de dentro, monitorando apenas o 'offset'
+  }, [offset]);
 
   return (
     <ProductContext.Provider
@@ -43,8 +43,7 @@ export const ProductProvider = ({ children }) => {
         error,
         offset,
         setOffset,
-        limit,
-        setLimit,
+        limit: 20, // Mantido de forma estática aqui para o Grid.jsx consumir sem quebrar os cálculos
       }}
     >
       {children}
@@ -52,7 +51,6 @@ export const ProductProvider = ({ children }) => {
   );
 };
 
-// Hook personalizado para os componentes usarem as informações de forma limpa
 export const useProducts = () => {
   const context = useContext(ProductContext);
   if (!context) {
