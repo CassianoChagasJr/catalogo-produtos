@@ -1,26 +1,26 @@
 /* src/components/Footer/Footer.module.css */
-
 .footerContainer {
-  background-color: #12110e; /* Mesmo tom escuro do seu Header */
-  color: #a39c93; /* Texto num tom cinza suave para não brigar com o conteúdo */
-  padding: 1rem 5%;
+  background-color: #12110e;
+  color: #a39c93;
+  padding: 1rem;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.4rem;
   align-items: center;
-  font-size: 0.85rem;
+  justify-content: center;
+  font-size: 0.75rem;
+  text-align: center;
   border-top: 1px solid #262421;
 
-  /* Garante que ele fique travado embaixo sem sofrer com o scroll do grid */
-  flex-shrink: 0;
+  flex-shrink: 0; /* 👈 Impede o navegador de achatar o rodapé */
 }
 
-/* Responsividade para telas menores (Celulares) */
-@media (max-width: 48rem) {
+@media (min-width: 48rem) {
   .footerContainer {
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-    padding: 1.25rem 5%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 5%;
+    font-size: 0.85rem;
   }
 }

@@ -1,55 +1,74 @@
-/* src/components/SearchBar/SearchBar.module.css */
-
 .searchBarContainer {
   background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 1rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
   display: flex;
-  gap: 1rem;
-  /* Removemos a margem negativa que quebrava o alinhamento no SPA */
-  margin: 0.5rem auto 2rem auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  flex-direction: column; /* Empilhado no celular */
+  gap: 0.75rem;
+  margin: 0.75rem auto 1.25rem auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   width: 100%;
   position: relative;
   z-index: 10;
 }
 
 .searchInputWrapper {
-  flex: 1;
   display: flex;
   align-items: center;
   background-color: #f7f6f2;
-  padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
+  padding: 0.85rem 1rem; /* Padding generoso para área de toque (UX) */
+  border-radius: 0.6rem;
   gap: 0.75rem;
 }
 
 .searchIcon {
   font-size: 1rem;
+  color: #7c756e;
 }
 
 .searchInputWrapper input {
   border: none;
   background: transparent;
   width: 100%;
-  font-size: 0.95rem;
+  font-size: 1rem; /* Mínimo 16px no mobile para o iOS não dar zoom automático */
   outline: none;
+  color: #1c1a17;
 }
 
 .filterBtn {
   background-color: #f7f6f2;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  font-weight: 500;
+  padding: 0.85rem 1rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  font-size: 0.95rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
   color: #1c1a17;
-  transition: background-color 0.2s ease;
+  width: 100%; /* Ocupa largura total no mobile */
 }
 
-.filterBtn:hover {
-  background-color: #ebeae4;
+/* 💻 Dispositivos maiores (Tablets e Desktops) */
+@media (min-width: 48rem) {
+  .searchBarContainer {
+    flex-direction: row; /* Alinhamento lado a lado */
+    padding: 1rem;
+    border-radius: 1rem;
+    gap: 1rem;
+    margin: 1rem auto 2rem auto;
+  }
+
+  .searchInputWrapper {
+    flex: 1;
+    border-radius: 0.75rem;
+  }
+
+  .filterBtn {
+    width: auto; /* Botão volta ao tamanho normal */
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+  }
 }
