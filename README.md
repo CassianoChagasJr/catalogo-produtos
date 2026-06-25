@@ -1,16 +1,16 @@
 # Catálogo de Produtos
 
-Este projeto é uma aplicação web desenvolvida com React e Vite para exibir um catálogo de produtos em estilo moderno, com busca, paginação e carregamento dinâmico de dados consumidos de uma API pública.
+Este projeto é uma aplicação web desenvolvida com React e Vite para exibir um catálogo de produtos com busca, paginação e carregamento dinâmico de dados consumidos de uma API pública.
 
 Ele foi desenvolvido como parte da disciplina de Programação para Web 2, no curso de Tecnologia em Análise e Desenvolvimento de Sistemas do Instituto Federal de Pernambuco, Campus Jaboatão dos Guararapes.
 
 ## Funcionalidades principais
 
 - Exibição de produtos em cards com imagem, categoria, título e preço.
-- Busca textual em tempo real para encontrar produtos no catálogo.
-- Paginação simples para navegar entre páginas de resultados.
-- Estados de carregamento e erro para melhor experiência do usuário.
-- Interface responsiva e organizada com componentes reutilizáveis.
+- Busca textual para localizar produtos no catálogo.
+- Paginação para navegar entre páginas de resultados.
+- Estados de carregamento e erro para melhorar a experiência do usuário.
+- Interface organizada e responsiva, com componentes reutilizáveis.
 
 ## Tecnologias utilizadas
 
@@ -20,12 +20,20 @@ Ele foi desenvolvido como parte da disciplina de Programação para Web 2, no cu
 - CSS Modules
 - Fetch API para integração com a API de produtos
 
-## Estrutura do projeto
+## Estrutura do Projeto
 
-- src/components: componentes da interface como header, grid, cards e barra de busca.
-- src/context: gerenciamento do estado global dos produtos.
-- src/services: funções para consumo da API.
-- src/App.jsx: ponto de entrada da aplicação.
+Principais arquivos e pastas:
+
+- src/App.jsx - Componente principal que monta o layout e a aplicação
+- src/main.jsx - Ponto de entrada React e renderização do app
+- src/context/ProductContext.jsx - Estado global do catálogo e lógica de busca/paginação
+- src/services/api.js - Funções para buscar produtos e categorias da API
+- src/components/SearchBar/SearchBar.jsx - Barra de pesquisa do catálogo
+- src/components/Grid/Grid.jsx - Exibe a grade de cards de produtos
+- src/components/Card/Card.jsx - Card de produto com imagem, categoria, título e preço
+- src/components/Layout/Layout.jsx - Layout com header e footer
+- src/components/Header/Header.jsx - Cabeçalho da aplicação e ação de voltar ao início
+- src/components/Footer/Footer.jsx - Rodapé da aplicação
 
 ## Como executar o projeto
 
