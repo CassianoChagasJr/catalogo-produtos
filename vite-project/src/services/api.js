@@ -1,5 +1,4 @@
-
-export async function buscarProdutos(offset = 0, limit = 20, title = "") {
+export async function buscarProdutos(offset, limit = 20, title = "") {
   try {
     // URL Base com a paginação padrão
     let url = `https://api.escuelajs.co/api/v1/products?offset=${offset}&limit=${limit}`;
