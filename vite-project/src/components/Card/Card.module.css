@@ -37,23 +37,6 @@
   z-index: 2;
 }
 
-.favoriteBtn {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 1px solid #e5e2db;
-  width: 1.85rem;
-  height: 1.85rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 0.8rem;
-  z-index: 2;
-}
-
 .cardInfo {
   padding: 0.75rem; /* Mais compacto no celular */
   display: flex;
@@ -72,8 +55,6 @@
   font-size: 0.9rem; /* Leitura precisa sem quebrar o layout */
   font-weight: 600;
   color: #1c1a17;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

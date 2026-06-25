@@ -2,7 +2,6 @@
 import React from "react";
 import { useProducts } from "../../context/ProductContext";
 import { Card } from "../Card/Card";
-import { SearchBar } from "../SearchBar/SearchBar"; // 👈 Importando o novo componente
 import styles from "./Grid.module.css";
 
 function Grid() {
@@ -19,7 +18,6 @@ function Grid() {
   return (
     <main className={styles.mainContent}>
       {/* 👈 Inserindo o componente isolado aqui */}
-      <SearchBar />
 
       {/* Contador */}
       <div className={styles.catalogCounter}>

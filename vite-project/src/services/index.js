@@ -1,1 +1,1 @@
-export { buscarProdutos } from "./api"
+export { buscarProdutos, categoriasGlobais } from "./api"

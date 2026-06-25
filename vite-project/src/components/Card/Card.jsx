@@ -13,7 +13,6 @@ function Card({ product }) {
 
         {/* Badge estática de desconto para seguir o seu design do Figma */}
         <span className={styles.discountTag}>-20%</span>
-        <button className={styles.favoriteBtn}>❤️</button>
       </div>
 
       <div className={styles.cardInfo}>
