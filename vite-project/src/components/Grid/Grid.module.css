@@ -1,0 +1,108 @@
+.mainContent {
+  flex: 1; /* 👈 ISSO AQUI FAZ A MÁGICA: empurra o footer sempre para o rodapé da página */
+  width: 100%;
+  padding: 0.75rem;
+  overflow-y: auto; /* Mantém o scroll interno isolado apenas aqui */
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+
+  /* Garante alinhamento vertical caso caia na tela de erro ou carregamento */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Customização leve da barra de rolagem para desktop */
+.mainContent::-webkit-scrollbar {
+  width: 0.4rem;
+}
+.mainContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mainContent::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 0.2rem;
+}
+
+.catalogCounter {
+  font-size: 0.95rem;
+  color: #7c756e;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.75rem; /* Espaçamento menor e cirúrgico para mobile */
+  margin-bottom: 2.5rem;
+}
+
+/* Paginação adaptada para dedos no Mobile */
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 0.5rem 2.5rem 0.5rem;
+  border-top: 1px solid #e5e2db;
+}
+
+.paginationContainer button {
+  background-color: #ffffff;
+  border: 1px solid #e5e2db;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  min-width: 5rem;
+  text-align: center;
+}
+
+.paginationContainer span {
+  font-size: 0.85rem;
+  white-space: nowrap;
+  padding: 0 0.25rem;
+}
+
+.loadingState,
+.errorState {
+  text-align: center;
+  margin: auto; /* Centraliza a mensagem perfeitamente na vertical e horizontal */
+  padding: 3rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #7c756e;
+  max-width: 25rem;
+}
+
+/* 💻 Dispositivos maiores (Tablets e Desktops) */
+@media (min-width: 48rem) {
+  .mainContent {
+    padding: 2rem 5%;
+  }
+
+  .catalogCounter {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .productsGrid {
+    /* Cards maiores e robustos em telas grandes */
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .paginationContainer {
+    justify-content: center; /* Centralizado no desktop */
+    gap: 1.5rem;
+  }
+
+  .paginationContainer button {
+    flex: initial; /* Botão assume o tamanho do seu próprio texto */
+    padding: 0.5rem 1.5rem;
+  }
+}

@@ -2,4 +2,32 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* Remove aquele flash azul chato ao tocar no mobile */
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f5f4f0;
+  color: #1c1a17;
+  line-height: 1.4;
+
+  /* Essencial para SPA: segura o viewport travado na janela */
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Utilitário para sumir com barras de scroll nativas se necessário */
+input,
+button {
+  font-family: inherit;
 }

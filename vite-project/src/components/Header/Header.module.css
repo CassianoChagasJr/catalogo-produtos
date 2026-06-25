@@ -1,0 +1,94 @@
+.container {
+  background-color: #12110e;
+  color: #ffffff;
+  padding: 1.25rem 1rem; /* Compacto no mobile */
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.content {
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brandBadge {
+  background-color: #262421;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🌟 Reseta o botão para herdar o comportamento visual limpo do container */
+.homeButton {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border-radius: 0.5rem;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* Feedback sutil de clique/interação */
+.homeButton:hover {
+  opacity: 0.85;
+}
+
+.homeButton:active {
+  transform: scale(0.95);
+}
+
+/* Mantém as sacolas com o tamanho estruturado */
+.bagIcon {
+  font-size: 1.5rem; /* Ajuste para o tamanho desejado das suas sacolas */
+  display: flex;
+  align-items: center;
+}
+
+.text h1 {
+  font-size: 1.35rem; /* Fonte confortável no mobile */
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.text p {
+  color: #a39c93;
+  font-size: 0.85rem;
+}
+
+/* 💻 Dispositivos maiores (Tablets e Desktops) */
+@media (min-width: 48rem) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .brandBadge {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .bagIcon {
+    font-size: 1.5rem;
+  }
+
+  .text h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .text p {
+    font-size: 1rem;
+  }
+}

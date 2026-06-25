@@ -1,0 +1,117 @@
+.productCard {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e2db;
+  height: 100%;
+}
+
+/* Container de Imagem Controlado */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cobre o espaço sem distorcer e sem estourar o card */
+  display: block;
+}
+
+.discountTag {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background-color: #da0a37;
+  color: white;
+  padding: 0.2rem 0.4rem;
+  border-radius: 2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.cardInfo {
+  padding: 0.75rem; /* Mais compacto no celular */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.2rem;
+}
+
+.productCategory {
+  font-size: 0.75rem;
+  color: #7c756e;
+  text-transform: capitalize;
+}
+
+.productTitle {
+  font-size: 0.9rem; /* Leitura precisa sem quebrar o layout */
+  font-weight: 600;
+  color: #1c1a17;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.4rem; /* Garante alinhamento das linhas inferiores */
+}
+
+.productPrice {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1c1a17;
+  margin-top: auto;
+}
+
+/* 💻 Dispositivos maiores (Tablets e Desktops) */
+@media (min-width: 48rem) {
+  .productCard {
+    border-radius: 1rem;
+  }
+
+  .productCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .discountTag {
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .favoriteBtn {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1rem;
+  }
+
+  .cardInfo {
+    padding: 1.25rem;
+    gap: 0.25rem;
+  }
+
+  .productCategory {
+    font-size: 0.8rem;
+  }
+
+  .productTitle {
+    font-size: 1rem;
+    min-height: 2.8rem;
+  }
+
+  .productPrice {
+    font-size: 1.15rem;
+  }
+}

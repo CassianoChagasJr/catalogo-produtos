@@ -1,6 +1,5 @@
-// src/context/ProductContext.jsx
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { buscarProdutos } from "../services/api"; // Ajuste o caminho se necessário
+import { buscarProdutos } from "../services/api";
 
 const ProductContext = createContext();
 
@@ -8,32 +7,42 @@ export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Estados globais para a paginação que o Grid vai consumir e alterar
   const [offset, setOffset] = useState(0);
-  const [limit, setLimit] = useState(20); // Traz 12 itens por página (atende o "pelo menos 10")
 
+  const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+
+  // Debounce de 400ms para aguardar a digitação finalizar
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 400);
+
+    return () => clearTimeout(handler);
+  }, [search]);
+
+  // Reseta para a página 0 quando uma nova busca é consolidada
+  useEffect(() => {
+    setOffset(0);
+  }, [debouncedSearch]);
+
+  // Requisição conectada diretamente à API
   useEffect(() => {
     const carregarDados = async () => {
       try {
         setLoading(true);
         setError(null);
-
-        // Executa o fetch passando o estado atual de paginação
-        const dados = await buscarProdutos(offset, limit);
+        const dados = await buscarProdutos(offset, 20, debouncedSearch);
         setProducts(dados);
       } catch (err) {
-        // Atende o requisito de tratamento de erro do PDF
-        setError(
-          "Não foi possível carregar os produtos. Tente novamente mais tarde.",
-        );
+        setError("Não foi possível carregar os produtos.");
       } finally {
         setLoading(false);
       }
     };
 
     carregarDados();
-  }, [offset, limit]); // Monitora offset e limit: se mudarem, faz um novo fetch automático!
+  }, [offset, debouncedSearch]);
 
   return (
     <ProductContext.Provider
@@ -43,8 +52,10 @@ export const ProductProvider = ({ children }) => {
         error,
         offset,
         setOffset,
-        limit,
-        setLimit,
+        limit: 20,
+        search,
+        setSearch,
+        totalProdutos: products.length,
       }}
     >
       {children}
@@ -52,11 +63,4 @@ export const ProductProvider = ({ children }) => {
   );
 };
 
-// Hook personalizado para os componentes usarem as informações de forma limpa
-export const useProducts = () => {
-  const context = useContext(ProductContext);
-  if (!context) {
-    throw new Error("useProducts deve ser usado dentro de um ProductProvider");
-  }
-  return context;
-};
+export const useProducts = () => useContext(ProductContext);
